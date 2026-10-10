@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Data and experiment artifacts (keep the folder, ignore the contents)
+data/
+outputs/*
+!outputs/.gitkeep
+*.keras
+*.h5
+*.weights.h5
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

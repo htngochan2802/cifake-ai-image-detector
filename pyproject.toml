@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cifake-detector"
+version = "0.2.0"
+description = "Fine-tuning CNN backbones to detect real vs. AI-generated images (CIFAKE)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "tensorflow>=2.15,<3",
+    "numpy",
+    "matplotlib",
+    "scikit-learn",
+    "pillow",
+    "kagglehub",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "pydot"]  # pydot is only needed for --plot_model (also needs graphviz)
+
+[project.scripts]
+cifake-train = "cifake.train:main"
+cifake-predict = "cifake.predict:main"
+
+[tool.setuptools.packages.find]
+include = ["cifake*"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
